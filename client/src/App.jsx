@@ -8,11 +8,12 @@ import {
   SignUpPage,
   TvShow,
 } from "./pages";
-import { BackgroundImage } from "./components";
+import { BackgroundImage, Header } from "./components";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
