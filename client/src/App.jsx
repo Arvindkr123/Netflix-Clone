@@ -8,6 +8,7 @@ import {
   SignUpPage,
   TvShow,
 } from "./pages";
+import { BackgroundImage } from "./components";
 
 const App = () => {
   return (
