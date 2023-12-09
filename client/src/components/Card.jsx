@@ -29,6 +29,7 @@ const Card = () => {
               onClick={() => navigate("/player")}
             />
             <video
+              onClick={() => navigate("/player")}
               src="https://res.cloudinary.com/ehizeex-shop/video/upload/v1668377666/NetflixApp/Action_mlw9wx.mp4"
               autoPlay
               loop
