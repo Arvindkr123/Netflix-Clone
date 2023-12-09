@@ -22,7 +22,7 @@ const SignUpPage = () => {
       navigate("/");
     } catch (error) {
       //console.log(error);
-      toast.success(`Something went wrong : ${error.message}`);
+      toast.error(`Something went wrong : ${error.message}`);
     }
   };
 
