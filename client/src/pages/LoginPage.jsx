@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     color: white;
-    background-color: rgba(0, 0, 0, 0.79);
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
     grid-template-columns: 15vh 85vh;
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
       align-items: center;
       justify-content: center;
       gap: 2rem;
-      background-color: #000000b0;
+      background-color: rgba(0, 0, 0, 0.83);
       height: 70vh;
       padding: 2rem;
       color: white;
@@ -68,7 +68,7 @@ const Wrapper = styled.div`
         border-radius: 0.4rem;
         padding: 0.5rem 1rem;
         width: 25rem;
-        height: 3.4rem;
+        height: 2.4rem;
         outline: none;
       }
       button {
