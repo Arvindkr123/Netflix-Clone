@@ -11,7 +11,10 @@ const Header = (props) => {
           alt="logo"
         />
       </div>
-      <button onClick={() => navigate(props.login ? "/login" : "/signup")}>
+      <button
+        className="btn"
+        onClick={() => navigate(props.login ? "/login" : "/signup")}
+      >
         {props.login ? "Log In" : "Sign In"}
       </button>
     </HeaderContainer>
@@ -22,15 +25,15 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem;
+  padding: 1rem;
   .logo {
     img {
       height: 3rem;
       cursor: pointer;
     }
   }
-  button {
-    padding: 0.5rem, 1rem;
+  .btn {
+    padding: 0.5rem 1rem;
     background-color: red;
     border: none;
     cursor: pointer;
