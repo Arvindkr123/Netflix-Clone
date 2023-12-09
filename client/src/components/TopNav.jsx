@@ -1,7 +1,10 @@
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import React from "react";
 import { AiOutlineLogout } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { firebaseAuth } from "../utils/firebase-config";
+import { toast } from "react-toastify";
 
 const TopNav = ({ isScrolled }) => {
   const navLinks = [
@@ -22,6 +25,16 @@ const TopNav = ({ isScrolled }) => {
       link: "/movies",
     },
   ];
+
+  const navigate = useNavigate();
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (!currentUser) navigate("/login");
+  });
+  const loginHanlder = () => {
+    signOut(firebaseAuth);
+    toast.success("logout successfully");
+  };
+
   return (
     <NavContainer>
       <nav className={isScrolled ? "scrolled" : "notScrolled"}>
@@ -43,7 +56,7 @@ const TopNav = ({ isScrolled }) => {
           </ul>
         </div>
         <div className="rightSide">
-          <button>
+          <button onClick={loginHanlder}>
             <AiOutlineLogout />
           </button>
         </div>
@@ -112,7 +125,7 @@ const NavContainer = styled.div`
       background-color: red;
       cursor: pointer;
       border: none;
-      border-radius:50%;
+      border-radius: 50%;
     }
     &:focus {
       outline: none;
