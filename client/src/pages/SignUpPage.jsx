@@ -1,9 +1,35 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { BackgroundImage, Header } from "../components";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { firebaseAuth } from "../utils/firebase-config";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [formValues, setFormValues] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  const handleSignUp = async () => {
+    try {
+      const { email, password } = formValues;
+      await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      toast.success(`User created successfully`);
+      navigate("/");
+    } catch (error) {
+      //console.log(error);
+      toast.success(`Something went wrong : ${error.message}`);
+    }
+  };
+
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (currentUser) navigate("/");
+  });
+
   return (
     <Container>
       <BackgroundImage />
@@ -19,15 +45,37 @@ const SignUpPage = () => {
           </div>
           <div className="form">
             {showPassword ? (
-              <input type="password" placeholder="password" name="password" />
+              <input
+                value={formValues.password}
+                onChange={(e) => {
+                  setFormValues({
+                    ...formValues,
+                    [e.target.name]: e.target.value,
+                  });
+                }}
+                type="password"
+                placeholder="password"
+                name="password"
+              />
             ) : (
-              <input type="email" placeholder="email address" name="email" />
+              <input
+                value={formValues.email}
+                onChange={(e) => {
+                  setFormValues({
+                    ...formValues,
+                    [e.target.name]: e.target.value,
+                  });
+                }}
+                type="email"
+                placeholder="email address"
+                name="email"
+              />
             )}
 
             {!showPassword ? (
               <button onClick={() => setShowPassword(true)}>Get Started</button>
             ) : (
-              <button>Sign Up</button>
+              <button onClick={handleSignUp}>Sign Up</button>
             )}
           </div>
         </div>
