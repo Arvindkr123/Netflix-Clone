@@ -7,7 +7,8 @@ import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 
-const Card = () => {
+const Card = ({ movieData }) => {
+  // console.log(movieData);
   const navigate = useNavigate();
   const [onHovered, setOnHovered] = useState(false);
   return (
@@ -16,7 +17,7 @@ const Card = () => {
       onMouseLeave={() => setOnHovered(false)}
     >
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU"
+        src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
         alt="movie poster"
         onClick={() => navigate("/player")}
       />
@@ -24,7 +25,7 @@ const Card = () => {
         <div className="hover">
           <div className="image-video-wrapper">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU"
+              src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
               alt="movie poster"
               onClick={() => navigate("/player")}
             />
@@ -39,7 +40,7 @@ const Card = () => {
           </div>
           <div className="info-container">
             <h3 className="movieName" onClick={() => navigate("/player")}>
-              Red Notice
+              {movieData.name}
             </h3>
             <div className="icons">
               <div className="controls">
@@ -58,10 +59,11 @@ const Card = () => {
             </div>
             <div className="genre">
               <ul>
-                <li>Action</li>
-                <li>Action</li>
-                <li>Action</li>
-                <li>Action</li>
+               {
+                movieData.genres.map((genre)=>{
+                  return <li>{genre}</li>
+                })
+               }
               </ul>
             </div>
           </div>
@@ -78,7 +80,6 @@ const CardContainer = styled.div`
   height: 100%;
   cursor: pointer;
   position: relative;
-  background-color: red;
   img {
     border-radius: 0.2rem;
     width: 100%;

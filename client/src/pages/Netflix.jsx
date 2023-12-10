@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, TopNav } from "../components";
+import { Card, MovieSlider, SliderContainer, TopNav } from "../components";
 import styled from "styled-components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
@@ -59,7 +59,7 @@ const Netflix = () => {
           </div>
         </div>
       </div>
-      <Card />
+      <SliderContainer movies={movies} />
     </HeroContainer>
   );
 };
