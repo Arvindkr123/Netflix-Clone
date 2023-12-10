@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import styled from "styled-components";
 
-const MovieSlider = ({ data, title }) => {
+export default React.memo(function MovieSlider({ data, title }) {
   //console.log(data);
   return (
     <Container>
@@ -16,7 +16,7 @@ const MovieSlider = ({ data, title }) => {
       </div>
     </Container>
   );
-};
+});
 
 const Container = styled.div`
   color: white;
@@ -40,5 +40,3 @@ const Container = styled.div`
     }
   }
 `;
-
-export default MovieSlider;
