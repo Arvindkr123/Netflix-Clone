@@ -73,11 +73,6 @@ export const fetchMovies = createAsyncThunk(
   }
 );
 
-const arrayofMovieData = (array, moviesArray, generes) => {
-  array.forEach((movie) => {
-    const moviesGeneres = [];
-  });
-};
 
 const NetflixSlice = createSlice({
   name: "Netflix",
