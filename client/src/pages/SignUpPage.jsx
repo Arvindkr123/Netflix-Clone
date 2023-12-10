@@ -111,13 +111,17 @@ const Container = styled.div`
         h1 {
           padding: 0 25rem;
         }
-        h4,
+        
+        h4 {
+          margin-top: 1.5rem;
+        }
         h6 {
-          margin-top: -1.5rem;
+          margin-top: 1.5rem;
         }
       }
 
       .form {
+        margin-top: 1rem;
         display: grid;
         width: 60%;
         grid-template-columns: ${({ showPassword }) =>

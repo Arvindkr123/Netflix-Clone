@@ -45,7 +45,7 @@ const TopNav = ({ isScrolled }) => {
               alt="logo"
             />
           </div>
-          <ul className="links">
+          {/* <ul className="links">
             {navLinks.map(({ name, link }) => {
               return (
                 <li key={name}>
@@ -53,7 +53,7 @@ const TopNav = ({ isScrolled }) => {
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
         </div>
         <div className="rightSide">
           <button onClick={loginHanlder}>
