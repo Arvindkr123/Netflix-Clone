@@ -12,17 +12,18 @@ const Netflix = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const generesLoaded = useSelector((state) => state.netflix.generesLoaded);
-  //console.log(generesLoaded);
+  const movies = useSelector((state) => state.netflix.movies);
+  //console.log(movies);
+
+  useEffect(() => {
+    dispatch(getGeners());
+  }, []);
 
   useEffect(() => {
     if (generesLoaded) {
       dispatch(fetchMovies({ type: "all" }));
     }
   });
-
-  useEffect(() => {
-    dispatch(getGeners());
-  }, []);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);

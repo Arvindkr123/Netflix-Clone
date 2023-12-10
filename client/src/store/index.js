@@ -68,11 +68,10 @@ export const fetchMovies = createAsyncThunk(
       generes,
       true
     );
-    console.log(data);
+    return data;
     // console.log(generes);
   }
 );
-
 
 const NetflixSlice = createSlice({
   name: "Netflix",
@@ -81,6 +80,9 @@ const NetflixSlice = createSlice({
     builder.addCase(getGeners.fulfilled, (state, action) => {
       state.generes = action.payload;
       state.generesLoaded = true;
+    });
+    builder.addCase(fetchMovies.fulfilled, (state, action) => {
+      state.movies = action.payload;
     });
   },
 });
