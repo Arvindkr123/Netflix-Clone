@@ -10,7 +10,6 @@ const SliderContainer = ({ movies }) => {
     <SliderWrapper>
       <MovieSlider data={getMoviesBetween(0, 10)} title="only on Netflix" />
       <MovieSlider data={getMoviesBetween(10, 20)} title="Trending Now" />
-      <MovieSlider data={getMoviesBetween(30, 30)} title="Action Movies" />
       <MovieSlider data={getMoviesBetween(30, 40)} title="Romantic Movies" />
       <MovieSlider data={getMoviesBetween(40, 50)} title="Epic" />
       <MovieSlider data={getMoviesBetween(50, 60)} title="New Releases" />

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Card, MovieSlider, SliderContainer, TopNav } from "../components";
+import { SliderContainer, TopNav } from "../components";
 import styled from "styled-components";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, getGeners } from "../store";
